@@ -1,0 +1,142 @@
+.local-date-container {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  color: #FDF6E3;
+  background-image: url('/src/assets/localdateimage.png'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.local-date-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4); 
+  z-index: 0;
+}
+
+.date, .location {
+  position: relative; 
+  z-index: 1;
+}
+
+.date {
+  z-index: 100;
+  margin-bottom: 0.2rem;
+  padding-bottom: 0;
+}
+
+.month,
+.year {
+  color: #D8A7B1;
+  font-size: 1.5rem;
+}
+
+.date h1 {
+  font-size: 4rem;
+  margin: 10px 0;
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.day {
+  color: #D8A7B1;
+  position: relative;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+.day-of-week,
+.time {
+  font-size: 1.2rem;
+  color: #FDF6E3;
+}
+
+.location {
+  z-index: 100;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  font-weight: 700;
+  color: #FDF6E3;
+}
+
+.map-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #FDF6E3;
+  background: rgba(216, 167, 177, 0.2); 
+  border: 1px solid rgba(216, 167, 177, 0.5);
+  border-radius: 25px;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.map-button:hover {
+  background: rgba(216, 167, 177, 0.4);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}
+
+.map-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 430px) {
+  .map-button {
+    font-size: 0.9rem;
+    padding: 0.4rem 1.2rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .local-date-container {
+    padding: 0 1rem;
+  }
+
+  .date h1 {
+    font-size: 3rem;
+    gap: 0.3rem;
+  }
+
+  .month,
+  .year {
+    font-size: 1.2rem;
+  }
+
+  .day-of-week,
+  .time {
+    font-size: 1rem;
+  }
+
+  .day {
+    font-size: 3rem;
+  }
+
+  .location {
+    font-size: 1rem;
+    margin-top: 0.8rem;
+  }
+}
+
+
