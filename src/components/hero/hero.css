@@ -1,9 +1,3 @@
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
 .hero {
   position: relative;
   width: 100vw;
@@ -20,6 +14,12 @@ body {
   overflow: hidden;
   padding: 0 1rem;
   box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 .overlay {
@@ -64,7 +64,7 @@ body {
 /* Responsividade para tablets */
 @media (max-width: 1024px) {
   .couple-names {
-    font-size: clamp(2.5rem, 9vw, 5rem);
+    font-size: clamp(3rem, 12vw, 6.5rem);
   }
 
   .verse {
@@ -79,7 +79,7 @@ body {
   }
 
   .couple-names {
-    font-size: clamp(2rem, 10vw, 4rem);
+    font-size: clamp(3.5rem, 14vw, 7rem);
   }
 
   .verse {
@@ -94,12 +94,13 @@ body {
   }
 
   .couple-names {
-    font-size: clamp(1.5rem, 12vw, 3rem);
+    font-size: clamp(4rem, 16vw, 7.5rem);
   }
 
   .verse {
     font-size: clamp(0.6rem, 3vw, 0.8rem);
   }
 }
+
 
 
