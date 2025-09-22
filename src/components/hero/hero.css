@@ -9,17 +9,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: #FDF6E3;
   text-align: center;
   overflow: hidden;
   padding: 0 1rem;
   box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
 }
 
 .overlay {
@@ -45,6 +39,7 @@ body {
   align-items: center;
   transform: rotate(-2deg);
   line-height: 1;
+  color: #D8A7B1;
 }
 
 .couple-names span {

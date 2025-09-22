@@ -1,0 +1,45 @@
+.invitation-text {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 1rem;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: white;
+  line-height: 1.8;
+  background-image: url('/src/assets/invitationtextimage.png'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  box-sizing: border-box;
+  color: #FDF6E3;
+}
+
+.invitation-text::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.4); 
+  z-index: 0;
+}
+
+.invitation-text p {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  white-space: pre-wrap; 
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.invitation-text strong {
+  font-weight: 700;
+  color: #D8A7B1;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+
