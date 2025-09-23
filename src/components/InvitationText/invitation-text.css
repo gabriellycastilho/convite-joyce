@@ -9,7 +9,6 @@
   padding: 3rem 1rem;
   font-family: 'Playfair Display', serif;
   font-size: clamp(1rem, 2.5vw, 1.25rem);
-  color: white;
   line-height: 1.8;
   background-image: url('/src/assets/invitationtextimage.png'); 
   background-size: cover;
