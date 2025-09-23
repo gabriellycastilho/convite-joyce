@@ -56,18 +56,6 @@
   line-height: 1.4;
 }
 
-/* Responsividade para tablets */
-@media (max-width: 1024px) {
-  .couple-names {
-    font-size: clamp(3rem, 12vw, 6.5rem);
-  }
-
-  .verse {
-    font-size: clamp(0.8rem, 2vw, 1rem);
-  }
-}
-
-/* Responsividade para celulares */
 @media (max-width: 768px) {
   .hero {
     height: 90vh;
@@ -78,11 +66,10 @@
   }
 
   .verse {
-    font-size: clamp(0.7rem, 2vw, 0.9rem);
+    font-size: clamp(0.6rem, 0.9vw, 0.8rem); 
   }
 }
 
-/* Responsividade para telas muito pequenas */
 @media (max-width: 480px) {
   .hero {
     height: 85vh;
@@ -93,9 +80,10 @@
   }
 
   .verse {
-    font-size: clamp(0.6rem, 3vw, 0.8rem);
+    font-size: clamp(0.5rem, 0.8vw, 0.7rem); 
   }
 }
+
 
 
 

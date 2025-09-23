@@ -4,13 +4,6 @@ import "./reserve-modal.css";
 export default function ReserveModal({ isOpen, onClose, onConfirm, giftName, showThanks }) {
   if (!isOpen) return null;
 
-  function scrollToFinalSection() {
-    const finalSection = document.getElementById("finalizacao-convite");
-    if (finalSection) {
-      finalSection.scrollIntoView({ behavior: "smooth" });
-    }
-  }
-
   const fadeVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
@@ -69,15 +62,9 @@ export default function ReserveModal({ isOpen, onClose, onConfirm, giftName, sho
               <p>
                 Muito obrigada! Você escolheu <strong>{giftName}</strong> 🎁. <br />
                 Tire print para não esquecer ❤️ <br />
-                Clique em Continuar para continuar vendo o convite.
+                Continue deslizando para ver o restante do convite.
               </p>
-              <button
-                className="confirm-btn"
-                onClick={() => {
-                  onClose();
-                  scrollToFinalSection();
-                }}
-              >
+              <button className="confirm-btn" onClick={onClose}>
                 Continuar
               </button>
             </motion.div>
@@ -87,6 +74,7 @@ export default function ReserveModal({ isOpen, onClose, onConfirm, giftName, sho
     </div>
   );
 }
+
 
 
 

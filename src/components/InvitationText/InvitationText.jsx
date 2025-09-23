@@ -16,7 +16,7 @@ export default function InvitationText() {
         e queremos celebrar rodeados de pessoas queridas.  
 
         <br /><br />
-        <strong>Te convidamos para o nosso chá de cozinha,  
+        <strong>Te convido para o meu chá de cozinha,  
         a realizar-se em:</strong>
       </motion.p>
     </section>

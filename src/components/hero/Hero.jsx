@@ -28,13 +28,13 @@ export default function Hero() {
           viewport={{ once: true, amount: 0.3 }}
         >
           <motion.span className="bride" variants={nameVariant}>
-            Joyce
+            Chá de cozinha
           </motion.span>
           <motion.span className="ampersand" variants={nameVariant}>
-            &amp;
+            da
           </motion.span>
           <motion.span className="groom" variants={nameVariant}>
-            Alessandro
+            Joyce
           </motion.span>
         </motion.div>
 
