@@ -21,8 +21,8 @@ export default function LocalDate() {
         className="date"
         variants={containerVariants}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        whileInView="visible"          
+        viewport={{ once: true, amount: 0.3 }} 
       >
         <motion.p className="month" variants={itemVariants}>OUTUBRO</motion.p>
 
@@ -62,5 +62,6 @@ export default function LocalDate() {
     </section>
   );
 }
+
 
 

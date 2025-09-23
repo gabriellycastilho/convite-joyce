@@ -6,8 +6,9 @@ export default function InvitationText() {
     <section className="invitation-text">
       <motion.p
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2, ease: "easeOut", delay: 0.5 }}
+        whileInView={{ opacity: 1, y: 0 }} 
+        viewport={{ once: true, amount: 0.5 }} 
+        transition={{ duration: 1.5, ease: "easeOut" }}
       >
         Com muito <strong>amor</strong> e <strong>alegria</strong>,  
         queremos compartilhar este <strong>momento especial</strong> com você.  
@@ -21,4 +22,5 @@ export default function InvitationText() {
     </section>
   );
 }
+
 

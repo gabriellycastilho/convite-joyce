@@ -9,7 +9,7 @@ export default function GiftList() {
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedGift, setSelectedGift] = useState(null);
-  const [showThanks, setShowThanks] = useState(false); 
+  const [showThanks, setShowThanks] = useState(false);
 
   useEffect(() => {
     fetchGifts();
@@ -42,7 +42,7 @@ export default function GiftList() {
     if (!selectedGift) return;
 
     const { error } = await supabase
-      .from("lista_de_presentes")
+      .from("lista_de-presentes")
       .update({ reservado: true })
       .eq("id", selectedGift.id);
 
@@ -57,34 +57,39 @@ export default function GiftList() {
     }
   }
 
-  const listVariants = {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+  };
+
+  const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: (i = 1) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.1 },
-    }),
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
   };
 
   if (loading) return <p className="loading">Carregando...</p>;
 
   return (
-    <div className="gift-page">
+    <section id="gift-list-section" className="gift-page">
       <div className="gift-container">
         <h2 className="gift-title">Lista de Presentes</h2>
 
         {gifts.length === 0 ? (
           <p className="gift-empty">Todos os presentes já foram reservados 💝</p>
         ) : (
-          <ul className="gift-list">
+          <motion.ul
+            className="gift-list"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
             {gifts.map((gift, index) => (
               <motion.li
                 key={gift.id}
                 className="gift-item"
                 custom={index}
-                initial="hidden"
-                animate="visible"
-                variants={listVariants}
+                variants={itemVariants}
               >
                 <span className="gift-name">{gift.nome}</span>
                 <button
@@ -95,7 +100,7 @@ export default function GiftList() {
                 </button>
               </motion.li>
             ))}
-          </ul>
+          </motion.ul>
         )}
       </div>
 
@@ -108,11 +113,12 @@ export default function GiftList() {
         }}
         onConfirm={reserveGift}
         giftName={selectedGift?.nome}
-        showThanks={showThanks} // prop para mostrar mensagem de agradecimento
+        showThanks={showThanks} 
       />
-    </div>
+    </section>
   );
 }
+
 
 
 
