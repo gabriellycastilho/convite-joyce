@@ -19,8 +19,7 @@ export default function GiftList() {
     setLoading(true);
     const { data, error } = await supabase
       .from("lista_de_presentes")
-      .select("*")
-      .eq("reservado", false);
+      .select("*");
 
     if (error) {
       console.error("Erro ao buscar presentes:", error.message);
@@ -30,19 +29,17 @@ export default function GiftList() {
     setLoading(false);
   }
 
-  // Abre o modal
   function handleOpenModal(gift) {
     setSelectedGift(gift);
-    setShowThanks(false); // reseta a tela de agradecimento
+    setShowThanks(false);
     setIsModalOpen(true);
   }
 
-  // Confirma a reserva
   async function reserveGift() {
     if (!selectedGift) return;
 
     const { error } = await supabase
-      .from("lista_de-presentes")
+      .from("lista_de_presentes")
       .update({ reservado: true })
       .eq("id", selectedGift.id);
 
@@ -50,12 +47,12 @@ export default function GiftList() {
       console.error("Erro ao reservar presente:", error.message);
       alert("Erro ao reservar presente.");
     } else {
-      // remove o presente da lista
       setGifts((prev) => prev.filter((gift) => gift.id !== selectedGift.id));
-      // mostra mensagem de agradecimento no modal
       setShowThanks(true);
     }
   }
+
+  const availableCount = gifts.filter(g => !g.reservado).length;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -74,7 +71,13 @@ export default function GiftList() {
       <div className="gift-container">
         <h2 className="gift-title">Lista de Presentes</h2>
 
-        {gifts.length === 0 ? (
+        {/* Resumo simplificado */}
+        <p className="gift-summary">
+          Presentes disponíveis: <strong>{availableCount}</strong> <br />
+          <em>Quando alguém reserva um item da lista, este item desaparece para evitar repetições. <br/> Mas você também pode escolher conforme sua vontade, eu vou amar 🥰</em>
+        </p>
+
+        {availableCount === 0 ? (
           <p className="gift-empty">Todos os presentes já foram reservados 💝</p>
         ) : (
           <motion.ul
@@ -84,7 +87,7 @@ export default function GiftList() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
           >
-            {gifts.map((gift, index) => (
+            {gifts.map((gift, index) => !gift.reservado && (
               <motion.li
                 key={gift.id}
                 className="gift-item"
@@ -104,7 +107,6 @@ export default function GiftList() {
         )}
       </div>
 
-      {/* Modal */}
       <ReserveModal
         isOpen={isModalOpen}
         onClose={() => {
@@ -113,11 +115,13 @@ export default function GiftList() {
         }}
         onConfirm={reserveGift}
         giftName={selectedGift?.nome}
-        showThanks={showThanks} 
+        showThanks={showThanks}
       />
     </section>
   );
 }
+
+
 
 
 

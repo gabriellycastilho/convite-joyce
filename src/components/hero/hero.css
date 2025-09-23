@@ -9,7 +9,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #FDF6E3;
   text-align: center;
   overflow: hidden;
   padding: 0 1rem;
@@ -52,6 +51,7 @@
   font-family: 'Playfair Display', serif;
   font-size: clamp(0.9rem, 2.5vw, 1.2rem);
   margin-top: 1rem;
+  color: #FDF6E3;
   padding: 0 1rem;
   line-height: 1.4;
 }

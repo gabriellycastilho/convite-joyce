@@ -25,6 +25,26 @@
   text-shadow: none; 
 }
 
+.gift-summary {
+  text-align: center;
+  color: #999; 
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+.gift-summary strong {
+  color: #333; 
+}
+
+.gift-summary em {
+  display: block;
+  margin-top: 0.5rem;
+  font-style: normal;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
 .gift-empty {
   text-align: center;
   font-size: 1.2rem;
@@ -61,8 +81,10 @@
 .gift-name {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #333; 
+  color: #D8A7B1; 
+  text-shadow: 1px 1px 3px rgba(211, 211, 211, 0.2);
 }
+
 
 .gift-button {
   background: rgba(255,255,255,0.6);
