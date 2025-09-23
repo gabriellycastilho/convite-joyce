@@ -80,30 +80,30 @@ export default function GiftList() {
         {availableCount === 0 ? (
           <p className="gift-empty">Todos os presentes já foram reservados 💝</p>
         ) : (
-          <motion.ul
-            className="gift-list"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            {gifts.map((gift, index) => !gift.reservado && (
-              <motion.li
-                key={gift.id}
-                className="gift-item"
-                custom={index}
-                variants={itemVariants}
-              >
-                <span className="gift-name">{gift.nome}</span>
-                <button
-                  className="gift-button"
-                  onClick={() => handleOpenModal(gift)}
-                >
-                  Reservar
-                </button>
-              </motion.li>
-            ))}
-          </motion.ul>
+         <motion.ul
+  className="gift-list"
+  variants={containerVariants}
+  initial="hidden"
+  animate="visible" // <<-- muda aqui
+>
+  {gifts.map((gift, index) => !gift.reservado && (
+    <motion.li
+      key={gift.id}
+      className="gift-item"
+      custom={index}
+      variants={itemVariants}
+    >
+      <span className="gift-name">{gift.nome}</span>
+      <button
+        className="gift-button"
+        onClick={() => handleOpenModal(gift)}
+      >
+        Reservar
+      </button>
+    </motion.li>
+  ))}
+</motion.ul>
+
         )}
       </div>
 

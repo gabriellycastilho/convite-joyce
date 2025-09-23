@@ -1,15 +1,15 @@
 .invitation-text {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  height: 100dvh; 
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 3rem 1rem;
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  line-height: 1.8;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem); 
+  line-height: 1.9;
   background-image: url('/src/assets/invitationtextimage.png'); 
   background-size: cover;
   background-position: center;
@@ -23,22 +23,47 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(0,0,0,0.4); 
+  background-color: rgba(0,0,0,0.6); 
   z-index: 0;
 }
 
 .invitation-text p {
   position: relative;
   z-index: 1;
+  width: 90%;
   max-width: 700px;
   white-space: pre-wrap; 
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  margin: 0 auto;
 }
 
 .invitation-text strong {
   font-weight: 700;
   color: #D8A7B1;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Responsividade para tablets */
+@media (max-width: 1024px) {
+  .invitation-text {
+    font-size: clamp(1.1rem, 2.7vw, 1.4rem);
+  }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 768px) {
+  .invitation-text {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    padding: 3rem 0.8rem;
+  }
+}
+
+/* Responsividade para telas muito pequenas */
+@media (max-width: 480px) {
+  .invitation-text {
+    font-size: clamp(0.95rem, 3.5vw, 1.2rem);
+    padding: 2.5rem 0.5rem;
+  }
 }
 
 

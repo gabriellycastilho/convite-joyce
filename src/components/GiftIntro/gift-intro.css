@@ -7,7 +7,7 @@
   text-align: center;
   padding: 5rem 2rem; 
   width: 100%;
-  min-height: 60vh; 
+  height: 100dvh; 
   background-image: url('../../assets/giftintroimage.png');
   background-size: cover;
   background-position: center;
@@ -21,55 +21,38 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.6); 
   z-index: 1;
 }
 
-.gift-intro h2,
 .gift-intro .gift-text {
   position: relative;
   z-index: 2;
-  width: 100%;
-  max-width: 800px; 
+  width: 90%;          
+  max-width: 600px;    
   margin: 0 auto;
-}
-
-.gift-intro h2 {
-  font-size: 2rem;
-  color: #D8A7B1; 
-  margin-bottom: 1rem;
-  font-weight: 700;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-}
-
-.gift-intro .gift-text {
-  font-size: 1.1rem;
-  color: #FDF6E3; 
-  line-height: 1.6;
+  white-space: pre-wrap; 
+  line-height: 2;        
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem); 
   font-family: 'Playfair Display', serif;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); 
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6); 
+  color: #FDF6E3;
 }
 
 .gift-intro .gift-text strong {
   color: #D8A7B1; 
   font-weight: 700;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
 }
 
 /* Responsividade para tablets */
 @media (max-width: 1024px) {
   .gift-intro {
     padding: 5rem 1.5rem;
-    min-height: 55vh;
+    height: 100dvh;
   }
-
-  .gift-intro h2 {
-    font-size: 1.9rem;
-  }
-
   .gift-intro .gift-text {
-    font-size: 1.05rem;
-    line-height: 1.5;
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
   }
 }
 
@@ -77,17 +60,10 @@
 @media (max-width: 768px) {
   .gift-intro {
     padding: 5rem 1rem;
-    min-height: 50vh;
+    height: 100dvh;
   }
-
-  .gift-intro h2 {
-    font-size: 1.7rem;
-  }
-
   .gift-intro .gift-text {
-    font-size: 1rem;
-    line-height: 1.45;
-    padding: 0 0.5rem; 
+    font-size: clamp(1.3rem, 2.5vw, 1.9rem);
   }
 }
 
@@ -95,19 +71,14 @@
 @media (max-width: 480px) {
   .gift-intro {
     padding: 4rem 0.5rem;
-    min-height: 45vh;
+    height: 100dvh;
   }
-
-  .gift-intro h2 {
-    font-size: 1.5rem;
-  }
-
   .gift-intro .gift-text {
-    font-size: 0.95rem;
-    line-height: 1.4;
-    padding: 0 0.5rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
   }
 }
+
+
 
 
 

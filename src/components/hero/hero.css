@@ -57,10 +57,6 @@
 }
 
 @media (max-width: 768px) {
-  .hero {
-    height: 90vh;
-  }
-
   .couple-names {
     font-size: clamp(3.5rem, 14vw, 7rem);
   }
@@ -71,10 +67,6 @@
 }
 
 @media (max-width: 480px) {
-  .hero {
-    height: 85vh;
-  }
-
   .couple-names {
     font-size: clamp(4rem, 16vw, 7.5rem);
   }

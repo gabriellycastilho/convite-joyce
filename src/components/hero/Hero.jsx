@@ -6,14 +6,20 @@ export default function Hero() {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.3,
+        staggerChildren: 0.3, 
       },
     },
   };
 
   const nameVariant = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    hidden: { opacity: 0, y: 50, scale: 0.5, rotate: -10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      rotate: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
   };
 
   return (
@@ -51,6 +57,7 @@ export default function Hero() {
     </section>
   );
 }
+
 
 
 
