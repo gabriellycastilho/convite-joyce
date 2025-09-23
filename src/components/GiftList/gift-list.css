@@ -88,6 +88,15 @@
   color: #888;
 }
 
+.gift-item.gift-reserved {
+  opacity: 0.5;
+  background: #f5f5f5;
+}
+
+.gift-button.undo {
+  background: #ff6b6b; 
+}
+
 /* Tablets */
 @media (max-width: 768px) {
   .gift-container {

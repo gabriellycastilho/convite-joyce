@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../../lib/supabaseClient";
 import { motion } from "framer-motion";
+import ReserveModal from "../ReserveModal/ReserveModal";
 import "./gift-list.css";
 
 export default function GiftList() {
   const [gifts, setGifts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedGift, setSelectedGift] = useState(null);
+  const [showThanks, setShowThanks] = useState(false); 
 
   useEffect(() => {
     fetchGifts();
@@ -26,18 +30,30 @@ export default function GiftList() {
     setLoading(false);
   }
 
-  async function reserveGift(id) {
+  // Abre o modal
+  function handleOpenModal(gift) {
+    setSelectedGift(gift);
+    setShowThanks(false); // reseta a tela de agradecimento
+    setIsModalOpen(true);
+  }
+
+  // Confirma a reserva
+  async function reserveGift() {
+    if (!selectedGift) return;
+
     const { error } = await supabase
       .from("lista_de_presentes")
       .update({ reservado: true })
-      .eq("id", id);
+      .eq("id", selectedGift.id);
 
     if (error) {
       console.error("Erro ao reservar presente:", error.message);
       alert("Erro ao reservar presente.");
     } else {
-      setGifts((prev) => prev.filter((gift) => gift.id !== id));
-      alert("Presente reservado com sucesso!");
+      // remove o presente da lista
+      setGifts((prev) => prev.filter((gift) => gift.id !== selectedGift.id));
+      // mostra mensagem de agradecimento no modal
+      setShowThanks(true);
     }
   }
 
@@ -73,7 +89,7 @@ export default function GiftList() {
                 <span className="gift-name">{gift.nome}</span>
                 <button
                   className="gift-button"
-                  onClick={() => reserveGift(gift.id)}
+                  onClick={() => handleOpenModal(gift)}
                 >
                   Reservar
                 </button>
@@ -82,9 +98,25 @@ export default function GiftList() {
           </ul>
         )}
       </div>
+
+      {/* Modal */}
+      <ReserveModal
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false);
+          setSelectedGift(null);
+        }}
+        onConfirm={reserveGift}
+        giftName={selectedGift?.nome}
+        showThanks={showThanks} // prop para mostrar mensagem de agradecimento
+      />
     </div>
   );
 }
+
+
+
+
 
 
 
