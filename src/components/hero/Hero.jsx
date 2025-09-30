@@ -53,10 +53,21 @@ export default function Hero() {
         >
           “Acima de tudo, porém, revistam-se do amor, que é o elo perfeito.” <br /> Colossenses 3:14
         </motion.p>
+
+        {/* Scroll Hint */}
+        <motion.div
+          className="scroll-hint"
+          initial={{ opacity: 0, y: -5 }}
+          animate={{ opacity: [0.6, 1, 0.6], y: [0, 5, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+        >
+          ↓ Desça para ver o convite ↓
+        </motion.div>
       </div>
     </section>
   );
 }
+
 
 
 

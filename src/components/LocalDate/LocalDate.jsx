@@ -35,7 +35,7 @@ export default function LocalDate() {
             animate={{ scale: [1, 1.1, 1], opacity: [1, 0.9, 1] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           >
-            19
+            26
           </motion.span>
 
           <motion.span className="time" variants={itemVariants}> | 14:00</motion.span>

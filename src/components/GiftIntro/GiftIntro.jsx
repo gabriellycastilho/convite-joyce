@@ -13,7 +13,7 @@ export default function GiftIntro() {
       >
         E para tornar essa <strong>nova fase</strong> ainda mais especial, preparei uma{" "}
         <strong>lista de presentes</strong> com todo carinho. Mas lembre-se: o mais importante é ter{" "}
-        <strong>você ao meu lado</strong> nesse momento tão especial. <br />
+        <strong>você ao meu lado</strong> nesse momento tão importante. <br />
         Se sentir no coração, escolha algo que vai me ajudar a{" "}
         <strong>construir esse sonho</strong> 🥰
       </motion.p>

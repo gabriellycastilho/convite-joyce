@@ -6,17 +6,15 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 3rem 1rem;
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.2rem, 2.5vw, 1.5rem); 
-  line-height: 1.9;
+  padding: 5rem 2rem;
+  line-height: 2;
   background-image: url('/src/assets/invitationtextimage.png'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
   box-sizing: border-box;
-  color: #FDF6E3;
+  
 }
 
 .invitation-text::before {
@@ -35,6 +33,9 @@
   white-space: pre-wrap; 
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
   margin: 0 auto;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  color: #FDF6E3;
 }
 
 .invitation-text strong {

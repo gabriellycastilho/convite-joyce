@@ -56,6 +56,16 @@
   line-height: 1.4;
 }
 
+.scroll-hint {
+  font-size: 0.9rem;
+  color: #FDF6E3;
+  text-align: center;
+  font-weight: 500;
+  text-shadow: 0 0 4px #D8A7B1;
+  margin-top: 2rem;
+}
+
+
 @media (max-width: 768px) {
   .couple-names {
     font-size: clamp(3.5rem, 14vw, 7rem);

@@ -52,16 +52,20 @@ export default function GiftList() {
     }
   }
 
-  const availableCount = gifts.filter(g => !g.reservado).length;
+  const availableCount = gifts.filter((g) => !g.reservado).length;
 
   const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.15 } },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.4, ease: "easeOut" },
+    },
   };
 
   if (loading) return <p className="loading">Carregando...</p>;
@@ -69,41 +73,74 @@ export default function GiftList() {
   return (
     <section id="gift-list-section" className="gift-page">
       <div className="gift-container">
-        <h2 className="gift-title">Lista de Presentes</h2>
+        {/* título com efeito fade + slide de cima */}
+        <motion.h2
+          className="gift-title"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          Lista de Presentes
+        </motion.h2>
 
-        {/* Resumo simplificado */}
-        <p className="gift-summary">
+        {/* resumo com fade + blur */}
+        <motion.p
+          className="gift-summary"
+          initial={{ opacity: 0, filter: "blur(6px)" }}
+          whileInView={{ opacity: 1, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           Presentes disponíveis: <strong>{availableCount}</strong> <br />
-          <em>Quando alguém reserva um item da lista, este item desaparece para evitar repetições. <br/> Mas você também pode escolher conforme sua vontade, eu vou amar 🥰</em>
-        </p>
+          <em>
+            Assim que você reserva um presente, ele some da lista para evitar
+            duplicados. Mas fique à vontade para escolher o que quiser, vou amar
+            de qualquer jeito 🥰 Só uma observação: a preferência de cor é{" "}
+            <strong style={{ color: "black" }}>preto</strong>. Ah, e se você
+            tentar reservar e der erro, pode ser que outra pessoa esteja
+            reservando no mesmo momento — é só escolher outro item ✨
+          </em>
+        </motion.p>
 
         {availableCount === 0 ? (
-          <p className="gift-empty">Todos os presentes já foram reservados 💝</p>
+          <motion.p
+            className="gift-empty"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Todos os presentes já foram reservados 💝
+          </motion.p>
         ) : (
-         <motion.ul
-  className="gift-list"
-  variants={containerVariants}
-  initial="hidden"
-  animate="visible" // <<-- muda aqui
->
-  {gifts.map((gift, index) => !gift.reservado && (
-    <motion.li
-      key={gift.id}
-      className="gift-item"
-      custom={index}
-      variants={itemVariants}
-    >
-      <span className="gift-name">{gift.nome}</span>
-      <button
-        className="gift-button"
-        onClick={() => handleOpenModal(gift)}
-      >
-        Reservar
-      </button>
-    </motion.li>
-  ))}
-</motion.ul>
-
+          <motion.ul
+            className="gift-list"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {gifts.map(
+              (gift, index) =>
+                !gift.reservado && (
+                  <motion.li
+                    key={gift.id}
+                    className="gift-item"
+                    custom={index}
+                    variants={itemVariants}
+                  >
+                    <span className="gift-name">{gift.nome}</span>
+                    <button
+                      className="gift-button"
+                      onClick={() => handleOpenModal(gift)}
+                    >
+                      Reservar
+                    </button>
+                  </motion.li>
+                )
+            )}
+          </motion.ul>
         )}
       </div>
 
@@ -120,6 +157,7 @@ export default function GiftList() {
     </section>
   );
 }
+
 
 
 
