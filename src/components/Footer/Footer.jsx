@@ -17,6 +17,10 @@ export default function Footer() {
     visible: { opacity: 1, transition: { duration: 1, delay: 1 } },
   };
 
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
     <footer className="footer">
       <div className="overlay" />
@@ -44,6 +48,8 @@ export default function Footer() {
         </motion.p>
       </div>
 
+      <button className="back-to-top" onClick={scrollToTop}>↑</button>
+
       <div className="footer-bottom">
         <motion.a
           href="https://instagram.com/bygabiconvites"
@@ -61,6 +67,8 @@ export default function Footer() {
     </footer>
   );
 }
+
+
 
 
 
