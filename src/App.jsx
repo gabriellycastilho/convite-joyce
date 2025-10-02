@@ -3,6 +3,7 @@ import InvitationText from "./components/InvitationText/InvitationText.jsx";
 import LocalDate from "./components/LocalDate/LocalDate.jsx";
 import GiftIntro from "./components/GiftIntro/GiftIntro.jsx";
 import GiftList from "./components/GiftList/GiftList.jsx";
+import ConfirmPresence from "./components/ConfirmPresence/ConfirmPresence.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import "./App.css";
 
@@ -14,6 +15,7 @@ export default function App() {
       <LocalDate />
       <GiftIntro />
       <GiftList />
+      <ConfirmPresence />
       <Footer />
     </div>
   );

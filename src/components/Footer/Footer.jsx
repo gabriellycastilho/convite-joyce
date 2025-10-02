@@ -12,6 +12,11 @@ export default function Footer() {
     visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut", delay: 0.5 } },
   };
 
+  const instaVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1, delay: 1 } },
+  };
+
   return (
     <footer className="footer">
       <div className="overlay" />
@@ -24,7 +29,8 @@ export default function Footer() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          Gênesis 2:24 – “Por isso, deixa o homem pai e mãe, e se une à sua mulher, tornando-se os dois uma só carne.”
+          Gênesis 2:24 – “Por isso, deixa o homem pai e mãe, e se une à sua mulher,
+          tornando-se os dois uma só carne.”
         </motion.p>
 
         <motion.p
@@ -37,7 +43,24 @@ export default function Footer() {
           Te espero para grandes risadas nesse dia especial 🥰
         </motion.p>
       </div>
+
+      <div className="footer-bottom">
+        <motion.a
+          href="https://instagram.com/bygabiconvites"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="insta-link"
+          variants={instaVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          faça o seu convite: @bygabiconvites
+        </motion.a>
+      </div>
     </footer>
   );
 }
+
+
 

@@ -62,7 +62,7 @@ export default function ReserveModal({ isOpen, onClose, onConfirm, giftName, sho
               <p>
                 Muito obrigada! Você escolheu <strong>{giftName}</strong> 🎁. <br />
                 Tire print para não esquecer ❤️ <br />
-                Continue deslizando para ver o restante do convite.
+                Continue deslizando para <strong>confirmar sua presença</strong>.
               </p>
               <button className="confirm-btn" onClick={onClose}>
                 Continuar
