@@ -1,7 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import "./reserve-modal.css";
 
-export default function ReserveModal({ isOpen, onClose, onConfirm, giftName, showThanks }) {
+
+export default function ReserveModal({ isOpen, onClose, onConfirm, onContinue, giftName, showThanks }) {
   if (!isOpen) return null;
 
   const fadeVariants = {
@@ -36,12 +37,7 @@ export default function ReserveModal({ isOpen, onClose, onConfirm, giftName, sho
               </p>
 
               <div className="modal-actions">
-                <button
-                  className="confirm-btn"
-                  onClick={() => {
-                    if (onConfirm) onConfirm();
-                  }}
-                >
+                <button className="confirm-btn" onClick={onConfirm}>
                   Confirmar
                 </button>
                 <button className="cancel-btn" onClick={onClose}>
@@ -64,7 +60,7 @@ export default function ReserveModal({ isOpen, onClose, onConfirm, giftName, sho
                 Tire print para não esquecer ❤️ <br />
                 Continue deslizando para <strong>confirmar sua presença</strong>.
               </p>
-              <button className="confirm-btn" onClick={onClose}>
+              <button className="confirm-btn" onClick={onContinue}>
                 Continuar
               </button>
             </motion.div>
@@ -74,6 +70,8 @@ export default function ReserveModal({ isOpen, onClose, onConfirm, giftName, sho
     </div>
   );
 }
+
+
 
 
 

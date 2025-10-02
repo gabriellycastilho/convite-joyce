@@ -119,6 +119,28 @@
   background: #ff6b6b; 
 }
 
+.gift-toggle-button {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.4rem 1.2rem; 
+  font-size: 0.9rem;      
+  font-weight: 600;
+  color: #D8A7B1;          
+  background: rgba(255, 182, 193, 0.2); 
+  border: 1px solid rgba(255, 105, 180, 0.5); 
+  border-radius: 25px;
+  text-decoration: none;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.gift-toggle-button:hover {
+  background: rgba(255, 182, 193, 0.35);
+  transform: translateY(-1px);
+}
+
+
 
 /* Tablets */
 @media (max-width: 768px) {

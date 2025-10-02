@@ -10,6 +10,7 @@ export default function GiftList() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedGift, setSelectedGift] = useState(null);
   const [showThanks, setShowThanks] = useState(false);
+  const [isListOpen, setIsListOpen] = useState(false); 
 
   useEffect(() => {
     fetchGifts();
@@ -73,7 +74,6 @@ export default function GiftList() {
   return (
     <section id="gift-list-section" className="gift-page">
       <div className="gift-container">
-        {/* título com efeito fade + slide de cima */}
         <motion.h2
           className="gift-title"
           initial={{ opacity: 0, y: -20 }}
@@ -84,7 +84,6 @@ export default function GiftList() {
           Lista de Presentes
         </motion.h2>
 
-        {/* resumo com fade + blur */}
         <motion.p
           className="gift-summary"
           initial={{ opacity: 0, filter: "blur(6px)" }}
@@ -103,60 +102,86 @@ export default function GiftList() {
           </em>
         </motion.p>
 
-        {availableCount === 0 ? (
-          <motion.p
-            className="gift-empty"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+        {/* botão abre/fecha lista */}
+        {!isListOpen ? (
+          <button
+            className="gift-toggle-button"
+            onClick={() => setIsListOpen(true)}
           >
-            Todos os presentes já foram reservados 💝
-          </motion.p>
+            Abrir lista
+          </button>
         ) : (
-          <motion.ul
-            className="gift-list"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {gifts.map(
-              (gift, index) =>
-                !gift.reservado && (
-                  <motion.li
-                    key={gift.id}
-                    className="gift-item"
-                    custom={index}
-                    variants={itemVariants}
-                  >
-                    <span className="gift-name">{gift.nome}</span>
-                    <button
-                      className="gift-button"
-                      onClick={() => handleOpenModal(gift)}
-                    >
-                      Reservar
-                    </button>
-                  </motion.li>
-                )
+          <>
+            {availableCount === 0 ? (
+              <motion.p
+                className="gift-empty"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                Todos os presentes já foram reservados 💝
+              </motion.p>
+            ) : (
+              <motion.ul
+                className="gift-list"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                {gifts.map(
+                  (gift, index) =>
+                    !gift.reservado && (
+                      <motion.li
+                        key={gift.id}
+                        className="gift-item"
+                        custom={index}
+                        variants={itemVariants}
+                      >
+                        <span className="gift-name">{gift.nome}</span>
+                        <button
+                          className="gift-button"
+                          onClick={() => handleOpenModal(gift)}
+                        >
+                          Reservar
+                        </button>
+                      </motion.li>
+                    )
+                )}
+              </motion.ul>
             )}
-          </motion.ul>
+
+            <button
+              className="gift-toggle-button close"
+              onClick={() => setIsListOpen(false)}
+            >
+              Fechar lista
+            </button>
+          </>
         )}
       </div>
 
-      <ReserveModal
-        isOpen={isModalOpen}
-        onClose={() => {
-          setIsModalOpen(false);
-          setSelectedGift(null);
-        }}
-        onConfirm={reserveGift}
-        giftName={selectedGift?.nome}
-        showThanks={showThanks}
-      />
+  <ReserveModal
+  isOpen={isModalOpen}
+  onClose={() => {
+    setIsModalOpen(false);
+    setSelectedGift(null);
+  }}
+  onConfirm={reserveGift} 
+  onContinue={() => {
+    setIsModalOpen(false);
+    setSelectedGift(null);
+    setIsListOpen(false); 
+  }}
+  giftName={selectedGift?.nome}
+  showThanks={showThanks}
+/>
+
     </section>
   );
 }
+
 
 
 
